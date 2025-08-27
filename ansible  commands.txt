@@ -1,0 +1,438 @@
+ansible all -a "yum install git -y"
+
+ansible all -m yum -a "name=git state=present"
+
+ansible all -m yum -a "name=docker state=present"
+
+
+=====================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install git
+      yum: name=git state=present
+
+    - name: install maven
+      yum: name=maven state=present
+
+    - name: install docker
+      yum: name=docker state=present
+
+    - name: install tree
+      yum: name=tree state=present
+
+===============================================================
+- hosts: all
+  become: yes
+  tasks:
+    - name: install git
+      yum: name=git state=present
+      tags: a
+
+    - name: install maven
+      yum: name=maven state=present
+      tags: b
+
+    - name: install docker
+      yum: name=docker state=present
+      tags: c
+
+    - name: install tree
+      yum: name=tree state=present
+      tags: d
+
+================================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install git
+      yum: name=git* state=absent
+      tags: a
+
+    - name: install maven
+      yum: name=maven* state=absent
+      tags: b
+
+    - name: install docker
+      yum: name=docker* state=absent
+      tags: c
+
+    - name: install tree
+      yum: name=tree* state=absent
+      tags: d
+
+=====================================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install pkgs
+      yum: name={{item}} state=present
+      with_items:
+        - git
+        - maven
+        - docker
+        - tree
+        - java
+        - httpd
+====================================================================
+
+1  passwd root
+    2  vim /etc/ssh/sshd_config
+    3  systemctl restart sshd
+    4  amazon-linux-extras install ansible2 -y
+    5  yum install python python-pip python-dlevel -y
+    6  vim /etc/ansible/hosts
+    7  vim /etc/ansible/ansible.cfg
+    8  ssh-keygen
+    9  ssh-copy-id root@172.31.30.127
+   10  ssh-copy-id root@172.31.30.254
+   11  ssh-copy-id root@172.31.19.8
+   12  ssh-copy-id root@172.31.16.103
+   13  ansible all -mping
+   14  ansible all -a "yum install git -y"
+   15  ansible all -m yum -a "name=maven state=present"
+   16  vim ansible-playbook.yaml
+   17  vim /etc/ansible/hosts
+   18  vim ansible-playbook.yaml
+   19  ls
+   20  ansible-playbook ansible-playbook.yaml
+   21  vim ansible-playbook.yaml
+   22  ansible-playbook ansible-playbook.yaml
+   23  vim ansible-playbook.yaml
+   24  ansible-playbook ansible-playbook.yaml --tags c
+   25  ansible-playbook ansible-playbook.yaml
+   26  ansible-playbook ansible-playbook.yaml --tags c,d
+   27  vim ansible-playbook.yaml
+   28  ansible-playbook ansible-playbook.yaml --skip-tag b
+   29  vim ansible-playbook.yaml
+   30  ansible-playbook ansible-playbook.yaml
+   31  vim ansible-playbook.yaml
+   32  ansible-playbook ansible-playbook.yaml
+   33  vim ansible-playbook.yaml
+   34  history
+===================================================================
+- hosts: all
+  become: yes
+  tasks:
+    - name: creating users
+      user: name=raju state=present
+    - name: ravi user
+      user: name=ravi state=present
+    - name: sai user
+      user: name=sai state=present
+    - name: devops user
+      user: name=devops state=present
+======================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: creating users
+      user: name={{item}} state=present
+      with_items:
+        - sai
+        - ravi
+        - raju
+        - teja
+        - aws
+        - azure
+        - devops
+        - gcp
+
+===========================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install git
+      yum: name=git state=present
+
+    - name: install docker
+      yum: name=docker state=present
+
+    - name: start docker
+      service: name=docker state=started
+
+================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install git
+      yum: name=git state=present
+
+    - name: install httpd
+      yum: name=httpd state=present
+
+    - name: start httpd
+      service: name=httpd state=started
+
+    - name: getting the code
+      git:
+        repo: "https://github.com/azuredevops7/pwj-netflix-clone.git"
+        dest: "/var/www/html"
+
+========================================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install docker
+      yum: name=docker state=present
+      notify: restart docker
+    - name: install httpd
+      yum: name=httpd state=present
+      notify: restart httpd
+  handlers:
+    - name: restart docker
+      service: name=docker state=started
+    - name: restart httpd
+      service: name=httpd state=started
+
+==================================================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: install docker
+      yum: name=docker state=present
+      when: ansible_os_family == "RedHat"
+
+    - name: install tree
+      yum: name=tree state=present
+      when: ansible_os_family == "RedHat"
+
+
+==============================================================================
+
+- hosts: test[1]
+  become: yes
+  tasks:
+    - name: install git
+      yum: name=git state=present
+
+    - name: install maven
+      command: yum install maven -y
+
+    - name: install docker
+      shell: yum install docker -y
+
+    - name: install tree
+      raw: yum install tree -y
+
+==================================================
+
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: install git
+      yum: name=git state=present
+
+    - name: install maven
+      command: yum install maven -y
+
+    - name: install docker
+      shell: yum install docker -y
+
+    - name: install tree
+      raw: yum install tree -y
+
+====================================================
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing pip
+      yum: name=pip state=present
+
+    - name: installing NumPy
+      pip: name=NumPy state=absent
+
+    - name: installing Pandas
+      pip: name=Pandas state=absent
+
+
+==================================================
+
+.
+├── master.yml
+└── playbooks
+    └── roles
+        ├── pkgs
+        │   └── tasks
+        │       └── main.yml
+        └── users
+            └── tasks
+                └── main.yml
+
+=========================================
+
+[root@ansible ~]# cat master.yml
+- hosts: all
+  roles:
+    - users
+    - pkgs
+
+
+============================================
+
+- name: installing pkgs
+  yum: name={{item}} state=present
+  with_items:
+    - git
+    - maven
+    - docker
+    - tree
+    - java
+
+=============================================
+
+- name: creating users
+  user: name={{item}} state=present
+  with_items:
+    - sai
+    - ravi
+    - raju
+    - teja
+    - shammu
+
+=====================================================
+
+[root@ansible ~]# history
+    1  passwd root
+    2  vim /etc/ssh/sshd_config
+    3  systemctl restart sshd
+    4  amazon-linux-extras install ansible2 -y
+    5  yum install python python-pip python-dlevel -y
+    6  vim /etc/ansible/hosts
+    7  vim /etc/ansible/ansible.cfg
+    8  ssh-keygen
+    9  ssh-copy-id root@172.31.36.68
+   10  ssh-copy-id root@172.31.44.68
+   11  ssh-copy-id root@172.31.43.133
+   12  ssh-copy-id root@172.31.40.201
+   13  ansible all -m ping
+   14  vim ansible-playbook.yml
+   15  ansible-playbook ansible-playbook.yml
+   16  vim ansible-playbook.yml
+   17  ansible-playbook ansible-playbook.yml
+   18  vim ansible-playbook.yml
+   19  tree
+   20  git --version
+   21  ansible-playbook ansible-playbook.yml
+   22  git --version
+   23  tree
+   24  vim ansible-playbook.yml
+   25  ansible-playbook ansible-playbook.yml
+   26  vim ansible-playbook.yml
+   27  ansible-playbook ansible-playbook.yml
+   28  vim
+   29  vim ansible-playbook.yml
+   30  ansible-playbook ansible-playbook.yml
+   31  vim ansible-playbook.yml
+   32  ls
+   33  rm ansible-playbook.yml
+   34  ls
+   35  mkdir playbooks
+   36  cd playbooks/
+   37  mkdir roles
+   38  mkdir pkgs users
+   39  ll
+   40  mv pkgs roles/
+   41  mv users roles/
+   42  ll
+   43  cd roles/
+   44  ll
+   45  cd pkgs/
+   46  mkdir tasks
+   47  cd tasks/
+   48  vim main.yml
+   49  cd ..
+   50  ll
+   51  cd users/
+   52  mkdir tasks
+   53  cd tasks/
+   54  vim main.yml
+   55  cd
+   56  yum install tree
+   57  tree
+   58  vim master.yml
+   59  cat master.yml
+   60  ansible-playbook master.yml
+   61  vim master.yml
+   62  rm -rf master.yml
+   63  vim master.yml
+   64  ansible-playbook master.yml
+   65  vim master.yml
+   66  ansible-playbook master.yml
+   67  vim master.yml
+   68  tree
+   69  cat master.yml
+   70  cat playbooks/roles/pkgs/tasks/main.yml
+   71  cat playbooks/roles/users/tasks/main.yml
+   72  cat master.yml
+   73  vim ansible-playbook.yml
+   74  cat ansible-playbook.yml
+   75  ansible-vault encrypt ansible-playbook.yml
+   76  cat ansible-playbook.yml
+   77  vim ansible-playbook.yml
+   78  ansible-vault decrypt ansible-playbook.yml
+   79  cat ansible-playbook.yml
+   80  vim ansible-playbook.yml
+   81  ls
+   82  ansible-vault create shammu.yml
+   83  cat shammu.yml
+   84  ansible-vault rekey shammu.yml
+   85  ansible-vault edit shammu.yml
+   86  hostory
+   87  history
+==========================================================
+
+.
+└── playbooks
+    ├── master.yml
+    └── roles
+        ├── pkgs
+        │   └── tasks
+        │       └── main.yml
+        └── users
+            └── tasks
+                └── main.yml
+
+
+=================================================
+
+[root@ip-172-31-35-112 ~]# cat playbooks/master.yml
+- hosts: localhost
+  roles:
+    - users
+    - pkgs
+
+=============================================
+
+[root@ip-172-31-35-112 ~]# cat playbooks/roles/pkgs/tasks/main.yml
+- name: installing pkgs
+  yum: name={{item}} state=present
+  with_items:
+    - git
+    - maven
+    - docker
+    - java
+    - tree
+===============================================
+
+[root@ip-172-31-35-112 ~]# cat playbooks/roles/users/tasks/main.yml
+- name: users
+  user: name={{item}} state=present
+  with_items:
+    - sai
+    - raju
+    - ravi
+    - shammu
+
+=================================================
+
+

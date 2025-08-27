@@ -1,0 +1,36 @@
+read escape sequence =it is used to come out of 
+from=base os image
+=======================================================================
+to download compose 
+              command=copy and past the commands at a time all 
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ls /usr/local/bin/
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
+===================================================================
+            to promitiyes and graphamna
+1. first past this 
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+2.second past this
+kubectl create namespace monitoring
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/prometheus --namespace monitoring
+kubectl get pods -n monitoring
+kubectl expose service prometheus-server --namespace monitoring --type=NodePort --target-port=9090 --name=prometheus-server-ext
+kubectl get svc -n monitoring
+helm repo add grafana https://grafana.github.io/helm-charts
+helm install grafana grafana/grafana --namespace monitoring
+kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+kubectl expose service grafana --namespace monitoring --type=NodePort --target-port=3000 --name=grafana-ext
+
+
+
+
+karthikeya@1karthikeya@1karthikeya@120.197.12.82
+
+
+

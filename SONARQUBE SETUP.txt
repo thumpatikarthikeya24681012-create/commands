@@ -1,0 +1,34 @@
+                     SONARQUBE SETUP 
+#! /bin/bash
+#Launch an instance with 9000 and t2.medium
+cd /opt/
+sudo amazon-linux-extras install epel -y
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip
+unzip sonarqube-8.9.10.61524.zip
+amazon-linux-extras install java-openjdk11 -y
+useradd sonar
+chown sonar:sonar sonarqube-8.9.10.61524 -R
+chmod 777 sonarqube-8.9.10.61524 -R
+su - sonar
+
+#run this on server manually
+# sh /opt/sonarqube-8.9.10.61524/bin/linux-x86-64/sonar.sh start
+#echo "user=admin & password=admin"
+=========================================
+MINIQUBE
+#vim .bashrc
+#export PATH=$PATH:/usr/local/bin
+#source .bashrc
+
+yum install docker -y
+systemctl start docker
+systemctl status docker
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo mv kubectl /usr/local/bin/kubectl
+sudo chmod +x /usr/local/bin/kubectl
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+sudo yum install iptables -y
+yum install conntrack -y
+minikube start --driver=docker --force
+minikube status 

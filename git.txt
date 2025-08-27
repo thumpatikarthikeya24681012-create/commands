@@ -1,0 +1,139 @@
+ It will maintain multiple versions of the same file.
+
+GIT: Global Information Tracker
+
+
+Git is used to track the files.
+It is platform-independent.
+It is free and open-source.
+They can handle larger projects efficiently.
+It is 3rd generation of vcs.
+it is written on c programming
+it came on the year 2005.
+LInus Torvalds introduced Git.
+
+STAGE:
+we have a total 3 stages:
+
+1. Working Directory: where we write the code.
+2. Staging Area: where we track the code.
+3. Repository: where we store the tracked code.
+
+WORKING:
+CREATE AN EC2 INSTANCE
+INSTALLING GIT:
+
+yum install git -y	: to install git
+git init		: to install .git repo
+
+touch index.html	: to create a file
+git status		: to show file status
+git add index.html	: to track the file
+git commit -m "commit-1" index.html: to commit a file
+commit means saving the tracked files to repo.
+git log			: to show list of commits
+git log --oneline	: to show logs in single line
+git log --oneline -2	: to show last 2 logs
+git log --oneline -3	: to show last 3 logs
+
+
+USER CONFIGURATION:
+
+
+git config user.name "shammu"
+git config user.email "shammu@gmail.com"
+
+Note: previous commit will not be chnaged.
+if we do new commit then our user name and email will be applied.
+
+
+BRANCHES:
+
+
+It's an individual line of development for code.
+we create different branches in real-time.
+At the end we will combine all branches together.
+Default branch is Master.
+
+git branch		: to list the branches
+git branch fb1	: to create a new branch
+git checkout fb1	: to switch from one branch to another.
+git checkout -b fb2: to create and switch from one branch to another.
+git branch -m fb1(old_name) fb2(new_name)	: to rename a branch
+
+Note: here every dev works on the local laptop
+at the end we want all dev codes to create an application.
+so here we use GitHub to combine all dev codes together.
+
+Create a GitHub account and create Repo 
+https://github.com/ -- > to create github
+
+git remote add origin https:url
+git push origin movies
+username:
+password:
+
+
+Note: in github passwords are not accepted we need to use token 
+
+profile -- > settings -- > developer settings -- > Personal access token -- > classic -- > 
+generate new token -- > classic -- > name: paytm -- > select 6 scopes -- > generate 
+
+git push origin fb2
+username:
+password:
+
+git push origin fb3
+username:
+Password:
+
+GIT MERGE: it is used to merge the file blw two branches.
+git checkout master
+git merge fb1
+
+GIT REBASE: it is used to merge the file blw two branches.
+git rebase fb2
+
+MERGE VS REBASE:
+merge for public repos, rebase for private 
+merge stores history, rebase will not store the entire history
+merge will show files, rebase will not show files
+
+GIT REVERT: to undo merging 
+git checkout master
+git merge fb1
+git revert fb1
+
+GIT CLONE: used to download repository from github to local.
+
+git clone URL
+
+Note:
+1. Repo must be public
+2. it show by default branch 
+
+GIT FORK: used to download repository from one github account to another.
+
+Note:
+1. Repo must be public
+2. we can fork repo for only once.
+
+
+GIT STASH: used to hide the tracked files.
+
+git stash list	: to show list of stashes
+git stash apply	: to get the stashed files back
+git stash clear	: to remove all stashed
+git stash pop	: to remove last stash
+
+
+=========================
+
+.gitignore: used to ignore the files, it wont track and commit the files.
+
+touch abc{1..5}
+vim .gitignore
+abc*
+
+git status
+

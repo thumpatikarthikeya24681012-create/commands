@@ -1,0 +1,4 @@
+how to stop docker 
+    - name: start docker
+      service: name=docker state=started
+      tags: 	nxe2iuxn32m

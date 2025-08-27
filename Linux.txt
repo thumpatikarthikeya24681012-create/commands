@@ -1,0 +1,33 @@
+                               Linux
+commands 
+touch=it is used to create a file commend touch filename example touch apple=apple is a file name
+we can create multiple files ata a time =touch asd dfg dffg =asd dfg dffg are file names give gap between the each file
+we can create a file like pw1 pw2 pw3 or we can create a file like touch pw{1..10}
+2. after create a file we can check file was create are not by using this command like ls(short list) or ll(long list)
+3.rm  is used to remove the file example rm apple -apple is a file name we can remove multiple files with same name ex rm apple* or rm a* it will delete starting letter of a files we can remove multiples files at a time rm a b c d
+4.vim  it is a editor it is used to command and insert and save quit we want to go for commend to insert press i and vim is used to open saved file and it will create a new file
+insert to command press esc
+in insert mode we can write any thing as save :w
+quite :q if we want to quit forcefull by using this command we can quit =:q! we can save and quit at a time :wq
+5.cat = cat command it is used to show written in past it will show it
+                     or
+we can check our data is saved or not by using cat command example cat apple 
+6.yy =command yy is used for copy the contain it have 2lines 2yy three lines 3yy 1 line yy
+it we copy all lines we can use ::set number 
+::set number it will show the number of lines 
+if we want to go another line give :10,:15 ect 
+7.if we want to cnange the name by using this command we can change the name :%s/old name/new name
+8.mv =commend mv is used to rename the file
+9.mkdir =command mkdir is user to create a directory or folder example mkdir directoryname mkdir apple
+like folder we can create a directory we can create a multiple directory like mkdir -p t1/t2/t3
+10.rmdir=command rmdir is used to remove the directory
+11.cd=command cd is used to go inside the directory example folder while open the folder and go insider the folder and check in the folder like as directory example cd apple
+12 we can create a file indide the directory using touch apple
+13.we can create multiple directory 
+14.pwd =command pwd is used for identify the path of the folder
+15.if we want to go back to another directory cd ..
+16. if we want to go back two directory cd ../.. 
+17. if we want to go root give cd command
+18.if again we want to go 5th directory cd -
+19.                                  git
+

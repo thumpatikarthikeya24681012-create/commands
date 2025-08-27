@@ -1,0 +1,183 @@
+for fresher this questions is eno1ugh 
+What is Docker, and why is it used?
+2. Explain the difference between a container and a virtual machine.
+3. What is containerization? How is it useful?
+4. What is the difference between Monolithic and Microservices architecture?
+5. How do you install Docker on Linux (like Ubuntu or CentOS)?
+6. What command is used to run a container in detached mode?
+7. What is the use of the Dockerfile? Can you explain a sample?
+8. What is the difference between COPY and ADD in a Dockerfile?
+9. How do you build an image using a Dockerfile?
+10. What command is used to list all running containers? What about stopped ones?
+11. How do you expose a container's internal port to the outside world?
+12. What is the use of Docker Compose? Write a simple docker-compose.yml.
+13. What does the -p 8081:80 option do in a Docker run command?
+14. How can you start, stop, and delete containers?
+15. What is a Docker network, and why is it used?
+🔹 Intermediate/Hands-on Based Questions
+
+16. Can you explain what happens when you run: docker run -itd --name cont1 -p 8081:80 myimg?
+17. How do you connect a running container to a custom network?
+18. What is the difference between CMD and ENTRYPOINT in a Dockerfile?
+19. How do you copy a local HTML file into a container's web directory using Dockerfile?
+20. What is Docker Swarm, and how do you initialize it?
+21. What does docker service create --replicas 3 do?
+22. How do you push your custom image to Docker Hub?
+Beginner Level
+What is the difference between docker run and docker start?
+
+How do you list all images on your system?
+
+How can you see the logs of a running container?
+
+What is the difference between CMD and ENTRYPOINT in a Dockerfile?
+
+How do you remove all stopped containers in one command?
+
+Intermediate Level
+How do you persist data in Docker containers?a= volume and bind mounts
+
+Explain the difference between a bridge network and a host network.
+
+How do you map a port from your container to the host machine?
+
+How do you reduce the size of a Docker image?
+
+How do you create a multi-stage Docker build?
+
+Advanced Level
+How does Docker handle container isolation internally?
+
+What is the difference between Docker Swarm and Kubernetes?
+
+How can you limit CPU and memory usage for a container?
+
+How do you secure secrets in Docker?
+
+Explain how overlay networks work in Docker.
+Beginner Level
+What is Docker, and how is it different from virtual machines?
+
+Explain the Docker architecture.
+
+What is a Docker image, and how is it different from a container?
+
+How do you list all running containers?
+
+What is the difference between docker ps and docker ps -a?
+
+How do you remove all stopped containers at once?
+
+What is the difference between docker stop and docker kill?
+
+How do you attach to a running container?
+
+What is the purpose of a Dockerfile?
+
+How do you pass environment variables to a container?
+
+Intermediate Level
+How do you persist data in Docker containers?
+
+What is the difference between bind mounts and volumes?
+
+How do you map a port from a container to the host?
+
+Explain the difference between docker run and docker start.
+
+What is the default network driver in Docker?
+
+How do you connect two containers so they can communicate?
+
+How do you reduce the size of a Docker image?
+
+How do you use docker exec?
+
+What is the difference between COPY and ADD in a Dockerfile?
+
+How do you inspect a container’s logs?
+
+Advanced Level
+How does Docker handle container isolation internally?
+
+What are cgroups and namespaces in Docker?
+
+How do you limit CPU and memory usage for a container?
+
+How does an overlay network work in Docker?
+
+How do you create a multi-stage Docker build?
+
+How do you secure secrets in Docker?
+
+What is Docker Compose, and how is it different from Docker Swarm?
+
+How do you update a running container with minimal downtime?
+
+Explain the difference between Docker Swarm and Kubernetes.
+
+How do you troubleshoot a failing Docker container?++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Basic Kubernetes Questions
+What is Kubernetes, and why do we use it?
+
+Explain the difference between a container and a virtual machine.
+
+What is a Kubernetes cluster, and what are its main components?
+
+What is a Pod in Kubernetes?
+
+What is the difference between a Pod and a Container?
+
+What is a Namespace in Kubernetes, and why do we use it?
+
+What is a Node in Kubernetes?
+
+What is the role of kube-apiserver in Kubernetes?
+
+What is the difference between Master Node and Worker Node?
+
+What is the role of kubelet?
+
+Intermediate Kubernetes Questions
+What is the purpose of Deployments in Kubernetes?
+
+What is the difference between ReplicaSet and Deployment?
+
+How do you scale applications in Kubernetes?
+
+What is a Service in Kubernetes? Explain the different types (ClusterIP, NodePort, LoadBalancer).
+
+What is the difference between ConfigMap and Secret?
+
+How does Kubernetes handle storage? (Persistent Volumes, Persistent Volume Claims)
+
+What is the difference between StatefulSet and Deployment?
+
+What is a DaemonSet, and when would you use it?
+
+How do you update a running application in Kubernetes without downtime?
+
+How does Kubernetes achieve self-healing?
+
+Scenario / Practical Questions
+If a Pod fails, how will Kubernetes restart it?
+
+How would you troubleshoot a Pod stuck in CrashLoopBackOff?
+
+How do you expose a Kubernetes application to the internet?
+
+If you want each node to run exactly one copy of a Pod, which object will you use?
+
+How do you check the logs of a running Pod?
+
+How would you debug if a Kubernetes Service is not reachable?
+
+Your application needs environment variables from a file—how will you do that in Kubernetes?
+
+If you need different environments (dev, staging, prod) in the same cluster, how will you manage it?
+
+How do you limit CPU and memory usage of a container in Kubernetes?
+
+How would you roll back a failed deployment in Kubernetes
+=========================

@@ -1,0 +1,254 @@
+Docker
+
+Day1:
+
+
+
+MONOLITHIC: multiple services are deployed on single server with single database.
+
+MICRO SERVICES: multiple services are deployed on multiple servers with multiple database.
+
+DOCKER: 
+Its an free & opensource tool.
+it is platform independent.
+used to create, run & deploy applications on containers.
+it is introduced on 2013 by solomenhykes & sebastian phal.
+We used GO laguage to develope the docker.
+here we write files on YAML.
+before docker user faced lot of problems, but after docker there is no issues with the application.
+
+CONTAINERIZATION:
+Process of packing an application with its dependencies.
+==================================================
+[root@ip-172-31-23-167 ~]# history
+    1  yum install docker -y
+    2  systemctl status docker
+    3  systemctl start docker
+    4  systemctl status docker
+    5  docker images
+    6  docker pull shammu101/dm
+    7  docker pull shammu101/cycle
+    8  docker pull shammu101/game
+    9  docker images
+   10  docker run -itd --name cont1 shammu101/dm
+   11  docker ps
+   12  docker run -itd --name cont2 shammu101/dm
+   13  docker ps
+   14  docker run -itd --name cont3 shammu101/cycle
+   15  docker ps
+   16  docker run -itd --name cont4 -p 8081:80 shammu101/dm
+   17  docker ps
+   18  docker run -itd --name cont1 -p 8081:80 shammu101/dm
+   19  docker run -itd --name cont5 -p 8082:80 shammu101/cycle
+   20  docker ps
+   21  docker run -itd --name cont6 -p 8082:80 shammu101/cycle
+   22  docker run -itd --name cont6 -p 8082:80 shammu101/game
+   23  docker ps
+   24  docker ps -a
+   25  docker run -itd --name cont7 -p 8082:80 shammu101/game
+   26  docker run -itd --name cont8 -p 8083:80 shammu101/game
+   27  docker ps -a
+   28  docker kill cont8
+   29  docker ps -a
+   30  docker start cont8
+   31  docker ps -a
+   32  history
+
+=====================================================================
+vim Dockerfile
+=========================================================
+
+FROM ubuntu
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install git -y
+RUN apt install maven -y
+
+===============================================================
+
+FROM ubuntu
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install apache2 -y
+COPY index.html /var/www/html/
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+
+=================================================================
+
+
+FROM ubuntu
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install apache2 -y
+COPY * /var/www/html/
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+
+====================================================================
+
+FROM nginx
+COPY * /usr/share/nginx/html/
+=====================================================================
+
+ 1  yum install docker -y && systemctl start docker
+    2  systemctl status docker
+    3  docker images
+    4  docker ps -a
+    5  vim Dockerfile
+    6  docker images
+    7  ls
+    8  docker build -t devops .
+    9  docker imgaes
+   10  docker images
+   11  docker run -itd --name cont devops
+   12  docker ps
+   13  docker ps -a
+   14  docker exec -it cont /bin/bash
+   15  docker ps -a
+   16  cat Dockerfile
+   17  ls
+   18  rm -rf Dockerfile
+   19  vim Dockerfile
+   20  docker build -t myimg .
+   21  ls
+   22  vim index.html
+   23  docker build -t myimg .
+   24  docker images
+   25  docker run -itd --name cont1 -p 8081:80 myimg
+   26  docker ps
+   27  git clone https://github.com/azuredevops7/pwj-netflix-clone.git
+   28  yum install git -y
+   29  git clone https://github.com/azuredevops7/pwj-netflix-clone.git
+   30  ls
+   31  cd pwj-netflix-clone/
+   32  ls
+   33  rm -rf Dockerfile
+   34  cd
+   35  cat Dockerfile
+   36  cd pwj-netflix-clone/
+   37  ls
+   38  vim Dockerfile
+   39  docker build -t myimg1 .
+   40  docker images
+   41  docker run -itd --name cont2 -p 8082:80 myimg1
+   42  docker ps
+   43  l
+   44  ls
+   45  rm Dockerfile
+   46  ls
+   47  vim Dockerfile
+   48  docker build -t myimg3 .
+   49  docker images
+   50  docker run -itd --name cont3 -p 8083:80 myimg3
+   51  docker ps
+   52  cd
+   53  docker imahes
+   54  docker images
+   55  docker commit cont3 shammu
+   56  docker images
+   57  docker run -itd --name cont4 -p 8084:80 shammu
+   58  history
+====================================================================
+ 1  docker network ;s
+    2  docker network ls
+    3  docker network create devops
+    4  docker network ls
+    5  docker ps -a
+    6  docker inspect cont1
+    7  docker inspect cont2
+    8  docker inspect cont3
+    9  docker run -itd --name cont4 -p 8084:80 --network devops nginx
+   10  docker inspect cont4
+   11  docker run -itd --name cont5 -p 8085:80 --network devops nginx
+   12  docker run -itd --name cont6 -p 8086:80 --network devops nginx
+   13  docker ps
+   14  docker inspect cont4
+   15  docker inspect cont5
+   16  docker inspect cont6
+   17  docker inspect cont1
+   18  docker exec -it cont2 /bin/bash
+   19  docker inspect cont3
+   20  docker exec -it cont2 /bin/bash
+   21  docker inspect cont5
+   22  docker exec -it cont2 /bin/bash
+   23  docker network connect devops cont2
+   24  docker network connect bride cont5
+   25  docker network connect bridge cont5
+   26  docker exec -it cont2 /bin/bash
+   27  histroy
+   28  history
+
+=============================================================
+
+Apt update -y
+
+Apt upgrade -y
+
+Apt install iputils-ping -y
+
+=====================================================
+version: '3'
+services:
+  game:
+    image: shammu101/game
+    ports:
+      - "9091:80"
+  dm:
+    image: shammu101/dm
+    ports:
+      - "9092:80"
+  cycle:
+    image: shammu101/cycle
+    ports:
+      - "9093:80"
+  nginx:
+    image: nginx
+    ports:
+      - "9094:80"
+  httpd:
+    image: httpd
+    ports:
+      - "9095:80"
+==========================================================
+
+docker-compose up -d
+
+docker-compose stop -d
+
+docker-compose start -d
+
+ ==========================================================
+
+
+1   docker swarm init --advertise-addr 16.170.239.210
+    2  docker node ls
+    3  docker ps -a
+    4  docker stop $(docker ps -a)
+    5  docker ps -a
+    6  docker rm $(docker ps -a)
+    7  docker ps -a
+    8  docker images
+    9  docker rmi $(docker images)
+   10  docker images
+   11  docker ps -a
+   12  docker service create --name dm --replicas 7 shammu101/dm
+   13  docker ps -a
+   14  docker service create --name dm1 --replicas 7 -p 8081:80 shammu101/dm
+   15  docker ps -a
+   16  docker kill 25679f776154
+   17  docker ps -a
+   18  docker service create --name cycle --replicas 7 -p 8082:80 shammu101/cycle
+   19  docker ps -a
+   20  docker kill f56e326fefed
+   21  docker ps -a
+   22  ls
+   23  vim docker-compose.yml
+   24  docker ps -a
+   25  vim docker-compose.yml
+   26  docker stack deploy --name mystack --compose docker-compose.yml
+   27  docker stack deploy --name mystack --compose-file docker-compose.yml
+   28  docker stack deploy mystack --compose-file docker-compose.yml
+   29  docker ps -a
+   30  history
+
+====================================================================
+

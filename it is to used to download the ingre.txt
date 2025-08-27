@@ -1,0 +1,51 @@
+         it is to used to download the ingress
+kubectl create -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.1/deploy/static/provider/cloud/deploy.yaml
+
+it is used to run ingress file =kubectl get ingress --watch
+
+
+it is sample code it is used  to edit
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: k8s-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /dm(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: dm-service
+                port:
+                  number: 80
+
+          - path: /cycle(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: cycle-service
+                port:
+                  number: 80
+
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: game-service
+                port:
+                  number: 80
+p and g 
+kubectl get svc -n monitoring
+packing of an application along with depebdency is caller containerization
+client =who are managing docker and interacting docker or orchestrating docker
+host=where docker was present
+register it is dockerhub image was stored to create a container
+

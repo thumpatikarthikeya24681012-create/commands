@@ -1,0 +1,103 @@
+create  a Jenkins in aws 
+#STEP-1: INSTALLING GIT JAVA-1.8.0 MAVEN 
+yum install git java-1.8.0-openjdk maven -y
+
+#STEP-2: GETTING THE REPO (jenkins.io --> download -- > redhat)
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+#STEP-3: DOWNLOAD JAVA17 AND JENKINS
+sudo yum install java-17-amazon-corretto -y
+yum install jenkins -y
+update-alternatives --config java
+
+#STEP-4: RESTARTING JENKINS (when we download service it will on stopped state)
+systemctl start jenkins.service
+systemctl status jenkins.service
+==========================================
+Jenkins-Pipelines:
+
+===========================================================
+
+Single stage Pipeline:
+
+pipeline {
+    agent any
+    stages {
+        stage ("one") {
+            steps {
+                sh "touch aws"
+            }
+        }
+    }
+}
+
+=========================================================
+
+
+Multi-stage Pipeline :
+
+
+pipeline {
+    agent any
+    stages {
+        stage ("one") {
+            steps {
+                sh "touch tcs"
+            }
+        }
+        stage ("two") {
+            steps {
+                sh "touch HCL"
+            }
+        }
+        stage ("Three") {
+            steps {
+                echo "Hello World"
+            }
+        }
+    }
+}
+
+================================================
+
+Install stage view plugin
+
+Dashboard  ---- Manage Jenkins  ---Plugins
+
+
+
+===================================================
+
+pipeline {
+    agent any
+    stages {
+        stage ("Git") {
+            steps {
+                git "https://github.com/azuredevops7/maven-project.git"
+            }
+        }
+        stage ("Compile") {
+            steps {
+                sh "mvn compile"
+            }
+        }
+        stage ("Test") {
+            steps {
+                sh "mvn test"
+            }
+        }
+        stage ("Pkg") {
+            steps {
+                sh "mvn package"
+            }
+        }
+        stage ("install") {
+            steps {
+                sh "mvn install"
+            }
+        }
+    }
+}
+
+=====================================================================

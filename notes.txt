@@ -1,0 +1,37 @@
+1.create a virtual machine 
+2.connect to mobixterm by using commends we can connect to mobixterm
+3.create elastic ip address and attached the elastic id to the server if we want to delete elastic ip go to server which we created and goto actions click on it and goto
+networksgoto disallocate elastic ip address
+4.create a load balance or elastic load balance
+5.service models 
+ias,pas,sas
+6.deployment models=public,private,hydride
+7.about aws
+8.advantages of aws
+region geographical location
+9. about ec2 service full form of ec2=amozon elastic compute cloud
+10.AMI=amazon machine image is software of is nothing but os it is used to create servers
+11.benifits of ec2
+12.create ec2 server
+13.connect it through mobixtrom
+14.create elastic ip address and attach to the server after attached release it
+15.create web server 
+16.create load balance an target group 
+17.autoscalling two types horizontal and vertical 
+18.ec2 buckets and connect another buckets move files to another buckets and automatically update one bucket to another bucket if delete any file it should not delete a file in another bucket
+
+19.create EBS and create ebs volume and create snapchart
+
+create snapchart through volume create volume create volume through snapchart
+20.about iam create user groups
+21.vpc
+
+application =a group services services
+server=which provides the services to the end services
+            Linux
+commands 
+touch=it is used to create a file commend touch filename example touch apple=apple is a file name
+we can create multiple files ata a time =touch asd dfg dffg =asd dfg dffg are file names give gap between the each file
+we can create a file like pw1 pw2 pw3 or we can create a file like touch pw{1..10}
+2. after create a file we can check file was create are not by using this command like ls or ll
+

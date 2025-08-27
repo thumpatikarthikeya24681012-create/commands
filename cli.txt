@@ -1,0 +1,39 @@
+
+cloud trail
+SNQ
+sns
+=========
+dynamic db
+cloud front-
+route 53-
+lamda-
+vpc-
+elastic ip-
+cloud watch
+rds-
+ec2-
+iam-
+ebs-
+efs-
+ami-
+load balance-
+auto scaling
+s3-
+eks
+sns
+
+===================
+kubernetics
+config map
+promithiyes and graphana
+==========================
+GIT LAB
+managed in aws in secrets manager
+stress
+projects 
+SonarQube
+tomcat
+dockerhub
+
++
+

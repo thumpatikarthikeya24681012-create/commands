@@ -1,0 +1,120 @@
+DAY 01:
+SOFTWARE ARCHITECTURE:
+
+1. ONE-TIER ARCHITECTURE
+2. TWO-TIER ARCHITECTURE
+3. THREE-TIER ARCHITECTURE
+4. N-TIER ARCHITECTURE
+
+EACH ARCHITECTURE WILL HAVE 3 LAYER[SERVER]
+
+TYPES OF SERVER:
+WEB SERVER
+APP SERVER
+DATA BASE SERVER
+
+
+SERVER: 
+it takes request from user and send response.
+serves services to user.
+
+WEBSERVER:
+used to show the application.
+it is also called as persentation layer.
+
+Who: Ui/Ux Developers
+what: UI Technologies
+Ex: Html, css, js -----
+
+APP SERVER:
+used to use the application.
+it is also called as Logic layer.
+
+WHO: backend developers
+what: Programming languages
+Ex: Java, Python, Node, .Net
+
+
+DATABASE SERVER:
+to store and retrive the data
+it is also called as data layer.
+
+WHO: DataBase Admins
+WHAT: DataBase languages
+Ex: Mysql, oracle, Postgres, Arangodb
+
+
+
+1. ONE-TIER ARCHITECTURE 
+it is Desktop Application.
+all 3 layers will be on single place.
+EX: VLC
+
+2. TWO-TIER ARCHITECTURE
+web & app server will be on desktop and db server will be on internet
+Ex: YOUTUBE
+
+3. THREE-TIER ARCHITECTURE
+all 3 layers will be seperated
+
+===============================
+
+Linux:
+
+
+touch file_name --->used to crete a single file
+
+touch f1 f2 f3 ----->used to create multiple files
+
+touch file{1..5} ----->create 5 files at a time
+
+
+rm file ----->used to remove single file
+
+rm f1 f2 f3 --->used to remove multiple files
+
+
+rm file{1..5}----->used to remove 5 files 
+
+rm -f *  ----->used to remove all files at a time
+
+mkdir folder1---->used to create a single folder
+
+mkdir f1 f2 f3----->used to create multiple folders
+
+
+mkdir folder{1..7}----->used to create 7 folders
+
+vim file_name  ----> to add the data with editor
+
+there are three modes in vim 
+
+1.command mode
+2. insert mode
+3. save and quit mode
+
+
+1.command mode 
+
+it is the default mode in vim
+
+it is used to perform the command in a file
+
+:set number  ----> to set the numbers in a file
+gg---> to go 1st line
+G--> togo last line
+M--> togo middle line
+3gg--> togo 3rd line
+A--> end of the line
+I--> starting of the line
+
+2.INSERT MODE:
+
+To switch from command mode to insert mode use ---> i
+
+3.SAVE AND QUIT MODE:
+
+:w----> SAVE
+
+
+
