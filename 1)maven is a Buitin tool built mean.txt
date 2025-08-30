@@ -1,0 +1,9 @@
+1)maven is a Buitin tool built means converting a humanreadable  language to machine language 
+2)maven was developed by apache software foundation
+3)to create a maven they usen a java 1.8.0
+without 1.8.0 version maven will not able to run and we cant able to run human readle language to machine language
+4)in java code we should have the porm.xml file without porm.xml we cant perform the maven
+5)once i have building  have java code target folder will create automatically
+inside the target folder we are having the arthifacts will
+6)arthifacts are nothing but final product of the source code
+7) after converting human readable language into the binary language we are having the artifacts
