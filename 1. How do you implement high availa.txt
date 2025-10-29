@@ -1,0 +1,250 @@
+1. How do you implement high availability in AWS for a web application?
+👉 Deploy applications across multiple Availability Zones (AZs) using Elastic Load Balancer (ELB), Auto Scaling Groups (ASG), and Amazon RDS Multi-AZ for databases. This ensures minimal downtime and fault tolerance.
+
+
+👉 Disaster Recovery (DR) strategies in AWS:
+
+Backup & Restore – Store backups in S3/Glacier and restore during failure.
+
+Pilot Light – Minimal resources always running, scale up when needed.
+
+Warm Standby – A scaled-down version of the full system running continuously.
+ 
+Multi-Site (Active-Active) – Applications running in multiple regions for zero downtime.
+
+3. How do you design a fault-tolerant architecture in AWS?
+👉 Use multi-AZ deployments, Auto Scaling, Load Balancers, RDS Multi-AZ/Read Replicas, and S3 cross-region replication. Fault-tolerant design ensures the system continues operating even if some components fail.
+
+4. Explain zero-downtime deployment strategies in AWS.
+👉 Use Blue-Green Deployment or Rolling Deployment with Elastic Beanstalk, CodeDeploy, or ECS. This ensures new versions are deployed without impacting current users.
+
+5. How do you implement security best practices in AWS (encryption, IAM roles, MFA)?
+👉 Best practices include:
+
+Use IAM roles & policies with least privilege access.
+
+Enable MFA (Multi-Factor Authentication).
+
+Encrypt data at rest (KMS, S3 SSE) and in transit (TLS/SSL).
+
+Use VPC security groups, NACLs, WAF, and GuardDuty.
+
+6. What is the difference between CI/CD and why is it important?
+👉
+
+CI (Continuous Integration): Frequent code integration, automated builds & testing.
+
+CD (Continuous Deployment/Delivery): Automated release to production.
+
+Importance: Faster releases, fewer bugs, consistent delivery.
+
+7. Which AWS services are used for CI/CD pipelines (CodeCommit, CodeBuild, CodeDeploy, CodePipeline)?
+👉 AWS CodeCommit, CodeBuild, CodeDeploy, CodePipeline, CloudWatch, S3, and Lambda are used for CI/CD automation.
+
+8. Explain CloudFormation and its benefits.
+👉 AWS CloudFormation is an Infrastructure as Code (IaC) service that provisions AWS resources using templates.
+Benefits:
+
+Automates provisioning
+
+Ensures consistency
+
+Enables version control
+
+Easy rollback and scaling
+
+9. Difference between EC2, S3, and RDS?
+👉
+
+EC2 (Elastic Compute Cloud): Virtual servers for compute.
+
+S3 (Simple Storage Service): Object storage for files and backups.
+
+RDS (Relational Database Service): Managed SQL databases (MySQL, PostgreSQL, Oracle, etc.).
+
+10. What is the difference between public cloud, private cloud, and hybrid cloud?
+👉
+
+Public Cloud: Services accessible to anyone (AWS, Azure, GCP).
+
+Private Cloud: Dedicated cloud for one organization only.
+
+Hybrid Cloud: Combination of public + private cloud for flexibility.
+
+11. Explain IAM (Identity & Access Management) in AWS.
+👉 IAM manages access to AWS services securely. It creates users, groups, roles, and policies to define permissions.
+
+12. What are Security Groups and NACLs?
+👉
+
+Security Groups: Instance-level firewall (stateful). Controls inbound/outbound traffic.
+
+NACLs (Network ACLs): Subnet-level firewall (stateless). Controls traffic at subnet level.
+
+13. Explain Auto Scaling in AWS.
+👉 Auto Scaling automatically increases or decreases EC2 instances based on demand. It ensures high availability, cost efficiency, and performance optimization
+14. What are AWS Regions and Availability Zones?
+
+Answer:
+An AWS Region is a geographical area that contains multiple, isolated locations known as Availability Zones (AZs). Each region is physically separated and designed to be completely isolated from the others for high availability and fault tolerance.
+An Availability Zone is one or more discrete data centers with redundant power, networking, and connectivity.
+
+15. Explain VPC Peering and Transit Gateway.
+
+Answer:
+
+VPC Peering allows you to connect two VPCs (Virtual Private Clouds) so that they can communicate with each other using private IP addresses. It is ideal for connecting a few VPCs.
+
+Transit Gateway is a network transit hub that allows you to connect thousands of VPCs and on-premises networks via a single gateway.
+
+16. Explain Jenkins pipeline and how it integrates with AWS.
+
+Answer:
+A Jenkins pipeline is a suite of plugins that support implementing and integrating continuous delivery pipelines into Jenkins.
+Jenkins integrates with AWS services using plugins (e.g., CodeDeploy, EC2 agents) to automate CI/CD pipelines, build code, run tests, and deploy applications on AWS.
+
+17. What is Kubernetes and why use it in AWS (EKS)?
+
+Answer:
+Kubernetes is an open-source platform used for automating deployment, scaling, and management of containerized applications.
+AWS provides EKS (Elastic Kubernetes Service), a managed service that makes it easy to run Kubernetes without installing or operating the control plane or nodes.
+
+18. What is Infrastructure as Code (IaC)?
+
+Answer:
+
+Infrastructure as Code (IaC) is the practice of managing and provisioning infrastructure using code and automation, rather than manual processes.
+Popular IaC tools include Terraform, AWS CloudFormation, and Ansible.
+
+19. Explain Elastic Beanstalk vs ECS vs EKS.
+
+Answer:
+
+Elastic Beanstalk: A Platform-as-a-Service (PaaS) for deploying and scaling web applications. AWS handles provisioning and infrastructure.
+
+ECS (Elastic Container Service): A fully managed container orchestration service to run Docker containers.
+
+EKS (Elastic Kubernetes Service): A managed Kubernetes service to run Kubernetes workloads on AWS.
+
+20. Explain AWS Lambda and its use cases.
+
+Answer:
+AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers.
+Use cases:
+
+```````````````````Real-time file processing (e.g., image uploads)
+
+Data transformation
+
+Backend services for APIs
+
+Automation tasks (e.g., cron jobs)
+21.type of ec2 instances
+22.how to connect database to ec2
+23.how to backup data in aws
+24.what is nacl, nat, subnet,three tire archetucture,cloud watch,cloud trail,cloud front,ebs,efs,iam,ami,ec2,load balance,auto scalling,lambd,aroute53,vpc,waf,sqs,sns,rds
+elastic ip, Fundamentals
+========================================================
+What is an Amazon VPC and why is it used?
+
+Explain the difference between a default VPC and a custom VPC.
+
+What are the components of a VPC?
+
+How do subnets work inside a VPC?
+
+Difference between public and private subnets.
+
+Networking & Connectivity
+What is a Route Table and how is it associated with subnets?
+
+How does an Internet Gateway enable internet access for instances?
+
+When would you use a NAT Gateway or NAT Instance?
+
+Explain VPC Peering and its limitations.
+
+What is AWS Transit Gateway and how does it differ from VPC Peering?
+
+Security
+Difference between Security Groups and Network ACLs.
+
+How do you implement least privilege access in a VPC?
+
+How can you allow only specific IP ranges to access your resources?
+
+What are flow logs and how do they help in security monitoring?
+
+Can a Security Group span multiple VPCs?
+
+Design & Best Practices
+How do you design a highly available architecture within a VPC?
+
+What is the maximum number of subnets you can create in a VPC?
+
+How do you plan IP CIDR blocks for a VPC?
+
+What is the role of a DHCP option set?
+
+How would you connect your on-premises data center to a VPC?
+
+Troubleshooting & Scenarios
+An EC2 instance in a private subnet can’t reach the internet. How would you troubleshoot?
+
+How can you access a private instance from your local machine securely?
+
+What steps would you take to monitor traffic between two subnets?
+
+How would you set up VPC endpoints for S3 or DynamoDB?
+
+Describe a real-world use case where multiple VPCs need to communicate securely.
+=====================================================================================
+Define Amazon VPC and list all key components.
+
+What is the smallest and largest CIDR block you can assign to a VPC?
+
+Explain how to calculate the number of usable IP addresses in a subnet.
+
+How do you create a custom VPC using the AWS Management Console?
+
+What are the default routes created when you build a VPC?
+
+Describe how Route Tables determine packet flow inside a VPC.
+
+What is the process to associate a subnet with multiple route tables?
+
+How do you configure an Internet Gateway to enable internet access?
+
+Explain how a NAT Gateway works and where it must be placed.
+
+Compare NAT Gateway with a NAT Instance.
+
+What is the function of Elastic Network Interfaces (ENIs) in a VPC?
+
+Explain how to enable VPC Flow Logs and where logs are stored.
+
+Describe the difference between Security Groups and Network ACLs in terms of statefulness.
+
+How do you configure a VPC endpoint for Amazon S3 and what are the benefits?
+
+What is the role of a DHCP option set in a VPC?
+
+Outline the steps to create a VPN connection between on-premises and a VPC.
+
+How would you set up a Transit Gateway to connect multiple VPCs?
+
+Describe the difference between PrivateLink and VPC Peering.
+
+What limits exist for the number of VPCs, subnets, and route tables per region?
+
+How do you configure IPv6 addressing within a VPC?
+
+What steps are needed to allow communication between instances in different subnets?
+
+Explain how to restrict outbound internet traffic from a subnet.
+
+How can you use AWS CLI to create a VPC and a public subnet in one command?
+
+What happens if you delete a route table that is in use?
+
+Describe how to design a multi-AZ architecture inside a single VPC for high availability.
